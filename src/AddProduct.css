@@ -1,0 +1,472 @@
+/* Wrapper for centering */
+.add-product-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.add-product-container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px;
+    /* Increased width */
+    /* box-shadow removed */
+    border: 1px solid #e2e8f0;
+}
+
+.form-header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 20px;
+}
+
+.form-header h2 {
+    margin: 0 0 8px 0;
+    color: #1e293b;
+    font-size: 16px;
+}
+
+/* Form Sections */
+.form-section {
+    margin-bottom: 30px;
+}
+
+/* Grids */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 2 columns */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.form-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* 3 columns for categories */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 13px;
+    color: #475569;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #1e293b;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    background: #fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Specifications */
+.specs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.spec-row {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.spec-row input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+.remove-spec-btn {
+    background: none;
+    border: none;
+    color: #ef4444;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.add-spec-btn {
+    background: #f1f5f9;
+    color: #2563eb;
+    border: 1px dashed #cbd5e1;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.add-spec-btn:hover {
+    background: #e2e8f0;
+}
+
+/* File Upload */
+.file-upload {
+    border: 2px dashed #cbd5e1;
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+    background: #f8fafc;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.file-upload:hover {
+    background: #f1f5f9;
+}
+
+.file-upload input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.file-label {
+    font-size: 14px;
+    color: #2563eb;
+    font-weight: 500;
+}
+
+/* File Previews */
+.file-previews {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.file-preview-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: white;
+}
+
+.preview-media {
+    height: 80px;
+    width: 100%;
+    background: #f1f5f9;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-placeholder {
+    font-size: 24px;
+    color: #64748b;
+}
+
+.remove-file-btn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.remove-file-btn:hover {
+    background: rgba(220, 38, 38, 0.9);
+}
+
+.file-name {
+    font-size: 11px;
+    color: #475569;
+    padding: 6px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Actions */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 40px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 20px;
+}
+
+.submit-btn {
+    padding: 12px 30px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.submit-btn:hover {
+    background: #1d4ed8;
+}
+
+.cancel-btn {
+    padding: 12px 25px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background: #f8fafc;
+}
+
+/* Loading In-Place Container */
+.loading-container-inplace {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.loading-content {
+    text-align: center;
+    max-width: 400px;
+    padding: 40px;
+}
+
+
+
+.rocket {
+    font-size: 80px;
+    animation: rocketFly 2s ease-in-out infinite;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+@keyframes rocketFly {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-45deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(-45deg);
+    }
+}
+
+
+
+.loading-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 30px 0;
+    color: #1e293b;
+}
+
+
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.spinner-dot {
+    width: 12px;
+    height: 12px;
+    background: #2563eb;
+    border-radius: 50%;
+    animation: bounce 1.4s ease-in-out infinite;
+}
+
+.spinner-dot:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.spinner-dot:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* ================= MOBILE VERSION ================= */
+@media (max-width: 768px) {
+    .add-product-wrapper {
+        padding: 10px;
+        padding-bottom: 30px;
+    }
+
+    .add-product-container {
+        padding: 20px 15px;
+        border-radius: 8px;
+    }
+
+    /* Stack general grids */
+    .form-grid,
+    .form-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* SPECIFICATIONS: Forced Single Row */
+    .spec-row {
+        display: flex;
+        flex-direction: row;
+        /* Keeps them side-by-side */
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+
+    .spec-row input {
+        flex: 1;
+        /* Makes Key and Value take equal space */
+        min-width: 0;
+        /* Prevents input from overflowing flex container */
+        padding: 10px 8px;
+        /* Slightly tighter padding for mobile */
+        font-size: 13px;
+    }
+
+    .remove-spec-btn {
+        padding: 0 5px;
+        font-size: 24px;
+        margin-left: 2px;
+    }
+
+    /* File Previews */
+    .file-previews {
+        grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+        gap: 10px;
+    }
+
+    /* Form Actions - stack buttons for easy tapping */
+    .form-actions {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    .submit-btn,
+    .cancel-btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    .Toastify__toast-container {
+        width: 90% !important;
+        left: 5% !important;
+        margin: 0 auto;
+        top: 10px !important;
+        /* Adjust if you want it at the top */
+    }
+
+    /* Adjust the toast box itself */
+    .Toastify__toast {
+        min-height: 48px !important;
+        margin-bottom: 8px !important;
+        border-radius: 8px !important;
+        padding: 8px 12px !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    /* Shrink the text size */
+    .Toastify__toast-body {
+        font-size: 13px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-weight: 500;
+        line-height: 1.3;
+    }
+
+    /* Shrink the icon size */
+    .Toastify__toast-icon {
+        width: 18px !important;
+        margin-right: 8px !important;
+    }
+
+    /* Shrink the close button */
+    .Toastify__close-button {
+        align-self: center;
+    }
+}

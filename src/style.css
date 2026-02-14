@@ -1,0 +1,1937 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* App Page .css File */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overscroll-behavior: none;
+  scrollbar-width: none;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+}
+
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 60px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  gap: 20px;
+}
+
+.sbn {
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.marketplace {
+  font-size: 12px;
+  font-weight: bold;
+  color: gray;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* resize logo image */
+.logo-img {
+  width: 70px;
+  /* change to 50 / 70 as you like */
+  height: auto;
+}
+
+/* text beside logo */
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== UPDATED SEARCH BOX ===== */
+.search-box {
+  display: flex;
+  /* Increased width to make it longer */
+  width: 55%;
+  align-items: center;
+  /* Ensures it stays centered between logo and nav-links */
+  margin: 0 auto;
+}
+
+.search-box input {
+  flex: 1;
+  /* Makes the input take up all available space in the box */
+  /* Reduced padding to make it "smaller" in height */
+  padding: 6px 12px;
+  font-size: 13px;
+  border: 1px solid #ddd;
+  border-right: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  outline: none;
+}
+
+.search-box button {
+  /* Matches the smaller height of the input */
+  padding: 6px 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  cursor: pointer;
+  color: #555;
+  transition: background 0.2s;
+}
+
+.search-box button:hover {
+  background-color: #eee;
+}
+
+/* ===== SEARCH RESULTS DROPDOWN ===== */
+.search-box-wrapper {
+  position: relative;
+  width: 55%;
+  margin: 0 auto;
+}
+
+.search-box-wrapper .search-box {
+  width: 100%;
+  margin: 0;
+}
+
+.search-results-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-top: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 9999;
+}
+
+.search-section {
+  padding: 10px 0;
+}
+
+.search-section:not(:last-child) {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.search-section h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #64748b;
+  margin: 0 15px 5px 15px;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.search-item {
+  padding: 8px 15px;
+  font-size: 14px;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.search-item:hover {
+  background-color: #f8fafc;
+  color: #ff784f;
+  padding-left: 20px;
+}
+
+.no-results {
+  padding: 20px;
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.nav-links a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+}
+
+/* Home Banner.jsx .css File */
+/* Layout Wrapper */
+.home-banner-wrapper {
+  width: 100%;
+}
+
+.home-banner-container img {
+  width: 100%;
+  display: block;
+}
+
+/* Pink Section Background */
+.legal-replica-section {
+  background: linear-gradient(to bottom, #fdf2f2 0%, #fbc2c0 100%);
+  padding: 10px 0 20px 0;
+  width: 100%;
+}
+
+/* Header & Arrows */
+.legal-replica-header {
+  max-width: 1200px;
+  margin: 0 auto 8px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.legal-replica-header h4 {
+  font-size: 16px;
+  /* Smaller heading */
+  color: #333;
+  font-weight: 600;
+  margin: 0;
+}
+
+.replica-controls {
+  position: absolute;
+  right: 20px;
+  display: flex;
+  gap: 6px;
+}
+
+.ctrl-btn {
+  background: #666;
+  color: white;
+  border: none;
+  width: 22px;
+  /* Tiny buttons */
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+/* The Horizontal Scroll Row */
+.legal-replica-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  /* Tight gap */
+  padding: 5px 30px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.legal-replica-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* REPLICA CARD: Ultra-small and simple */
+.replica-card {
+  min-width: 180px;
+  /* Very small width */
+  max-width: 180px;
+  background: white;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ffffff;
+  transition: transform 0.2s;
+}
+
+.replica-card:hover {
+  transform: scale(1.02);
+  /* Simple hover effect */
+}
+
+/* Image container */
+.replica-card-top {
+  width: 100%;
+  height: 90px;
+  /* Reduced height for small look */
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.replica-card-top a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.replica-card-top img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Keeps icons sharp */
+}
+
+.replica-card-bottom {
+  text-align: center;
+  width: 100%;
+  padding-top: 5px;
+}
+
+/* Smallest title styling */
+.replica-card-bottom h3 {
+  font-size: 10px;
+  /* Very small font */
+  color: #222;
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* ===== CATEGORY BAR ===== */
+.categories {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 60px;
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.categories>* {
+  white-space: nowrap;
+}
+
+/* ================= ALL CATEGORIES (MEGA) ================= */
+
+.mega {
+  position: relative;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mega-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  max-width: max-content;
+  padding: 6px 0;
+  z-index: 9999;
+}
+
+.mega:hover .mega-panel {
+  display: block;
+}
+
+/* Uniform Item Style for Panel 1, 2, and 3 */
+.mega-item,
+.mega-sub-item,
+.mega-sub-sub a {
+  padding: 8px 18px;
+  /* Standardized padding */
+  position: relative;
+  line-height: 1.4;
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-size: 12px;
+  transition: background 0.2s ease;
+}
+
+.mega-item:hover,
+.mega-sub-item:hover,
+.mega-sub-sub a:hover {
+  background: #f2f2f2;
+}
+
+/* ===== PANEL 2 ===== */
+.mega-sub {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: none;
+  background: #fff;
+  max-width: max-content;
+  border-left: 1px solid #eee;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.mega-item::after {
+  content: ">";
+  position: absolute;
+  right: 6px;
+  font-size: 14px;
+  color: #888;
+}
+
+.mega-sub-item {
+  position: relative;
+  padding-right: 18px;
+}
+
+.mega-sub-item::after {
+  content: "›";
+  position: absolute;
+  right: 6px;
+  font-size: 14px;
+  color: #888;
+}
+
+.mega-item:hover>.mega-sub {
+  display: block;
+}
+
+/* ===== PANEL 3 ===== */
+.mega-sub-sub {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: none;
+  background: #fff;
+  max-width: max-content;
+  border-left: 1px solid #eee;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  padding: 6px 0;
+}
+
+.mega-sub-item:hover>.mega-sub-sub {
+  display: block;
+}
+
+/* ================= NORMAL MENU (Software, etc.) ================= */
+
+.normal {
+  position: relative;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.normal-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  max-width: max-content;
+  padding: 6px 0;
+  z-index: 9999;
+}
+
+.normal:hover .normal-menu {
+  display: block;
+}
+
+.normal-item {
+  padding: 16px 20px;
+  position: relative;
+  line-height: 1.4;
+}
+
+.normal-item::after {
+  content: "›";
+  position: absolute;
+  right: 6px;
+  font-size: 14px;
+  color: #888;
+}
+
+.normal-item:hover {
+  background: #f2f2f2;
+}
+
+/* ===== NORMAL PANEL 2 (Software Sub-items) ===== */
+.normal-sub {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: none;
+  background: #fff;
+  max-width: max-content;
+  border-left: 1px solid #eee;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  padding: 6px 0;
+}
+
+/* Ensure the links inside normal-sub look like the first panel */
+.normal-sub a {
+  padding: 8px 18px;
+  display: block;
+  color: black;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.normal-sub a:hover {
+  background: #f2f2f2;
+}
+
+.normal-item:hover>.normal-sub {
+  display: block;
+}
+
+/* ===== FIX FOR RIGHT-SIDE OVERFLOW ===== */
+
+/* 1. Target the 'Bakery' or any of the last 2 normal menus */
+.normal:nth-last-child(-n+2) .normal-menu {
+  left: auto;
+  right: 0;
+  /* Align the first dropdown to the right of the parent */
+}
+
+/* 2. Make sub-panels (Panel 2 & 3) open to the LEFT instead of RIGHT */
+.normal:nth-last-child(-n+2) .normal-item>.normal-sub,
+.normal:nth-last-child(-n+2) .mega-item>.mega-sub,
+.normal:nth-last-child(-n+2) .mega-sub-item>.mega-sub-sub {
+  left: auto;
+  right: 100%;
+  /* Push it to the left side of the parent panel */
+  border-left: none;
+  border-right: 1px solid #eee;
+  /* Move the border to the other side */
+}
+
+/* 3. Reduce global padding slightly to save space on smaller desktops */
+.mega-item,
+.mega-sub-item,
+.normal-item,
+.normal-sub a {
+  padding: 6px 14px;
+  /* Reduced from 8px 18px */
+  font-size: 11.5px;
+  /* Slightly smaller font for tighter panels */
+}
+
+
+/* ===== GLOBAL LINKS STYLE ===== */
+.mega a,
+.normal a {
+  font-size: 12px;
+  color: black;
+  text-decoration: none;
+}
+
+/* ===== ICON COLOR ===== */
+.mega svg,
+.normal svg {
+  color: #ff6600;
+}
+
+
+/* Your footer (remove margin-top) */
+.footer {
+  background: #111;
+  color: #fff;
+  /* Reduced vertical padding from 18px to 10px */
+  padding: 10px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Reduced font size for a cleaner look */
+  font-size: 11px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer div {
+  opacity: 0.8;
+  /* Makes the text look slightly softer and more premium */
+}
+
+/* Become a member Page .css File */
+.member-page {
+  padding: 25px 60px;
+  /* same horizontal rhythm as header */
+  font-size: 13px;
+}
+
+/* Optional banner */
+.member-banner img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 18px;
+}
+
+/* Top panel */
+.top-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 12px 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 25px;
+  border-radius: 6px;
+}
+
+.panel-item {
+  text-align: center;
+  flex: 1;
+  font-size: 12px;
+}
+
+.panel-item svg {
+  color: #4da3ff;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+/* Register section */
+.register-section {
+  text-align: center;
+}
+
+.register-section h2 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.already {
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+
+.already a {
+  text-decoration: none;
+  color: inherit;
+  display: inline;
+  color: #007bff;
+}
+
+.register-card {
+  margin: auto;
+  width: 55%;
+  /* reduced from 70% */
+  background: #eaf4ff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Form grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  text-align: left;
+}
+
+.form-grid label {
+  font-size: 12px;
+}
+
+.form-grid input {
+  width: 100%;
+  padding: 7px 8px;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+/* Register button */
+.register-btn {
+  margin-top: 18px;
+  padding: 9px 30px;
+  border: none;
+  background: #7b6cff;
+  color: white;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* ===== Main Page Wrapper ===== */
+.product-page-container {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+/* ===== Banner ===== */
+.product-banner {
+  padding: 0 60px;
+  margin-top: 10px;
+}
+
+.product-banner img {
+  width: 100%;
+  height: 180px;
+  /* Adjusted for desktop */
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+/* ===== Breadcrumb ===== */
+.breadcrumb {
+  padding: 15px 60px;
+  background: #f8f9fa;
+  font-size: 13px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breadcrumb a {
+  color: #2e74ff;
+  text-decoration: none;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.breadcrumb .separator {
+  color: #ccc;
+  font-size: 10px;
+}
+
+.breadcrumb .current-page {
+  color: #222;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* ===== Content Area ===== */
+.product-main-content {
+  padding: 30px 60px;
+}
+
+/* ===== Desktop Subcategory / Segment Links ===== */
+.desktop-sub-list {
+  display: flex;
+  gap: 12px;
+  white-space: nowrap;
+  margin-top: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+}
+
+.desktop-sub-link {
+  padding: 8px 18px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #444;
+  background: #fff;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.desktop-sub-link:hover {
+  background: #ff6600;
+  color: #fff;
+  border-color: #ff6600;
+  box-shadow: 0 4px 10px rgba(255, 102, 0, 0.2);
+}
+
+
+/* ===== Segment Selector ===== */
+.segment-selector h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+
+.segment-list {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.segment-btn {
+  padding: 8px 18px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  /* Rounded pill style */
+  text-decoration: none;
+  color: #444;
+  background: #fff;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.segment-btn:hover {
+  background: #ff6600;
+  color: #fff;
+  border-color: #ff6600;
+  box-shadow: 0 4px 10px rgba(255, 102, 0, 0.2);
+}
+
+.section-divider {
+  border: 0;
+  border-top: 1px solid #f0f0f0;
+  margin: 30px 0;
+}
+
+/* ===== Products Grid ===== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 15px;
+}
+
+/* ===== Product Card ===== */
+.product-card {
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.product-img-wrapper {
+  width: 100%;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.product-img-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.product-card-info h4 {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #222;
+  height: 32px;
+  /* Limits title height */
+  overflow: hidden;
+}
+
+.product-price {
+  color: #ff6600;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.product-meta {
+  font-size: 11px;
+  color: #777;
+}
+
+/* ===== No Products Styling ===== */
+.no-products {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-products h2 {
+  font-size: 18px;
+  color: #888;
+}
+
+/* ===== Updated Search Animation ===== */
+.search-animation {
+  position: relative;
+  width: 120px;
+  height: 100px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart {
+  font-size: 55px;
+  position: absolute;
+  bottom: 5px;
+  left: 35px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.lens {
+  font-size: 30px;
+  position: absolute;
+  z-index: 2;
+  /* Start position */
+  left: 10px;
+  top: 10px;
+  animation: searchMove 6s infinite ease-in-out;
+}
+
+@keyframes searchMove {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(60px, -10px) rotate(15deg);
+  }
+
+  50% {
+    transform: translate(80px, 40px) rotate(-10deg);
+  }
+
+  75% {
+    transform: translate(20px, 35px) rotate(20deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+
+/* Login page .css file */
+
+/* ===== GLOBAL PAGE LAYOUT ===== */
+.login-page {
+  height: 100vh;
+  width: 100vw;
+  background: url("/LoginBanner.png") no-repeat center center/cover;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+/* Top left page logo */
+.login-top-logo {
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  width: 90px;
+}
+
+/* Left bottom content - Pinned to the corner */
+.login-left-text {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  max-width: 600px;
+  color: #000;
+  text-align: left;
+}
+
+.login-left-text h3 {
+  font-size: 19px;
+  font-weight: 750;
+  line-height: 1.3;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+}
+
+.login-points {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: auto;
+}
+
+.login-points span {
+  font-size: 13px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #333;
+}
+
+.tickmark-logo {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+/* ===== REFINED LOGIN CARD ===== */
+.login-card {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 310px;
+  /* Precise width to match reference */
+  padding: 25px 22px;
+  border-radius: 22px;
+
+  /* Glass Effect */
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Header: Small logo and Welcome text aligned left */
+.card-header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.card-logo-small {
+  width: 26px;
+  /* Small scale from original */
+  height: auto;
+  display: block;
+}
+
+.welcome-msg-small {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: #000;
+}
+
+.card-subtitle-italic {
+  font-size: 13px;
+  font-weight: 800;
+  font-style: italic;
+  text-align: left;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+/* Inputs: Small scale with precise spacing */
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+.login-input-small {
+  width: 100%;
+  padding: 9px 12px;
+  font-size: 12px;
+  /* Small placeholders */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  background: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.login-input-small::placeholder {
+  color: #999;
+}
+
+/* Functional Eye Icon */
+.password-eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 42%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+  display: flex;
+  align-items: center;
+}
+
+/* Remember Me row */
+.remember-me-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  margin-bottom: 18px;
+  color: #333;
+}
+
+.remember-me-row input {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+/* Buttons and Spacing */
+.sign-in-button {
+  width: 100%;
+  padding: 11px;
+  background: linear-gradient(to right, #00939d, #254655);
+  /* Exact gradient */
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.or-text {
+  font-size: 13px;
+  font-weight: 900;
+  margin: 10px 0;
+  /* Tightened gap */
+  color: #000;
+  text-align: center;
+}
+
+.register-button-outline {
+  width: 100%;
+  padding: 11px;
+  background: white;
+  border: 1px solid #adadad;
+  color: #333;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.register-button-outline a {
+  text-decoration: none;
+  /* Removes the underline */
+  color: inherit;
+  /* Makes the text color match the button's text color */
+  display: block;
+  /* Ensures the entire button area is clickable */
+}
+
+
+/* Footer Policy */
+.card-footer-policy {
+  margin-top: 18px;
+  font-size: 10px;
+  color: #555;
+  text-align: center;
+}
+
+.card-footer-policy span {
+  color: #007bff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* SingleProductPage.css file */
+
+/* ===== GLOBAL SINGLE PAGE FIX ===== */
+.single-wrapper {
+  padding: 20px 5%;
+  background: #fff;
+}
+
+.mobile-back {
+  display: none;
+}
+
+.single-top {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  /* Prevents breaking to new lines */
+}
+
+/* 1. SMALL THUMBS */
+.thumbs-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 60px;
+}
+
+.thumb-img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.active-thumb {
+  border: 2px solid #a67c6d !important;
+  opacity: 1 !important;
+}
+
+.main-media {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 2. SMALLER MAIN IMAGE */
+.image-display {
+  flex: 1;
+  max-width: 350px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-display img {
+  width: 100%;
+  height: 280px;
+  /* Reduced height */
+  object-fit: contain;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+}
+
+/* 3. SMALLER SIDE SPECS */
+.product-details-side {
+  flex: 1;
+  /* Takes remaining center space */
+  max-width: 300px;
+}
+
+.brand-tag {
+  font-size: 11px;
+  font-weight: bold;
+  color: #0095ff;
+  text-transform: uppercase;
+}
+
+.product-details-side h2 {
+  font-size: 20px;
+  margin: 5px 0;
+  color: #333;
+}
+
+.small-price {
+  font-size: 22px;
+  color: #ff4d00;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.mini-specs {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.mini-spec-line {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 4px 0;
+}
+
+.mini-spec-line .key {
+  font-weight: bold;
+  color: #777;
+  width: 80px;
+  display: inline-block;
+}
+
+/* 4. COMPACT ENQUIRE BOX */
+.enquiry-sidebar {
+  width: 240px;
+  /* Slimmer to stay inside window */
+}
+
+.compact-form {
+  background: #f4f9ff;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #d0e4ff;
+}
+
+.form-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.small-input {
+  width: 100%;
+  padding: 7px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.small-text {
+  width: 100%;
+  height: 60px;
+  padding: 7px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.small-btn {
+  width: 100%;
+  padding: 8px;
+  background: #0095ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* 5. CENTERED DESCRIPTION & TABS */
+.center-info-section {
+  margin: 40px auto;
+  max-width: 700px;
+  /* Keeps it centered and compact */
+  text-align: center;
+}
+
+.tab-menu {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 15px;
+}
+
+.tab-menu span {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  color: #888;
+}
+
+.tab-menu span.active {
+  color: #0095ff;
+  border-bottom: 2px solid #0095ff;
+}
+
+.small-desc {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.mini-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.mini-table td {
+  padding: 8px;
+  border: 1px solid #eee;
+  text-align: left;
+}
+
+/* 6. RELATED PRODUCTS SECTION */
+.related-section {
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.related-item {
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #f0f0f0;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.related-item:hover {
+  border-color: #0095ff;
+  transform: translateY(-3px);
+}
+
+.related-item img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+}
+
+.related-item h4 {
+  font-size: 13px;
+  margin: 8px 0;
+}
+
+.related-item p {
+  color: #ff4d00;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+
+/* Mobile Layout .css File */
+/* ================= MOBILE OPTIMIZATIONS (ALL PAGES) ================= */
+@media (max-width: 768px) {
+
+  /* 1. HEADER FIX: Prevents overlap by using explicit grid rows */
+  .header {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    /* Row 1: Logo (Left) | Nav (Right) */
+    grid-template-rows: auto auto !important;
+    /* Row 2: Search Bar */
+    gap: 12px 10px !important;
+    padding: 12px 15px !important;
+    background: #fff;
+    align-items: center;
+    height: auto !important;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Row 1 Left: Logo and Name */
+  .logo-box {
+    grid-column: 1 / 2 !important;
+    grid-row: 1 !important;
+  }
+
+  .logo-img {
+    width: 35px !important;
+  }
+
+  /* Row 1 Right: Become a Member & About Us */
+  .nav-links {
+    grid-column: 2 / 3 !important;
+    grid-row: 1 !important;
+    display: flex !important;
+    gap: 12px !important;
+    margin: 0 !important;
+  }
+
+  .nav-links a {
+    margin: 0 !important;
+    font-size: 10px !important;
+    text-align: center;
+  }
+
+  /* Row 2: Full-Width Search Bar */
+  .search-box-wrapper {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .search-box {
+    width: 100% !important;
+  }
+
+  /* 2. CATEGORIES FIX: Ensures it stays below the header */
+  .categories {
+    display: flex !important;
+    overflow-x: auto !important;
+    gap: 15px !important;
+    padding: 10px 15px !important;
+    white-space: nowrap;
+    background: #fafafa;
+    border-bottom: 1px solid #eee;
+    margin: 0 !important;
+    scrollbar-width: none;
+  }
+
+  /* 3. FOOTER FIX: Reduce size and stack text */
+  .footer {
+    padding: 15px 20px !important;
+    /* Reduced from 60px to 20px */
+    flex-direction: column !important;
+    /* Stack copyright and "powered by" text */
+    gap: 6px !important;
+    /* Tight spacing between lines */
+    text-align: center !important;
+    justify-content: center !important;
+    font-size: 10px !important;
+    /* Slightly smaller for mobile */
+  }
+
+  .footer div {
+    width: 100%;
+    opacity: 0.9;
+  }
+
+  /* 4. CONTENT AREA FIX: Prevents overlap on product pages */
+  .product-main-content,
+  .member-page,
+  .single-wrapper {
+    padding: 15px !important;
+    margin-top: 0 !important;
+  }
+}
+
+/* ===== MOBILE CATEGORY FULL SCREEN ===== */
+
+.mobile-cat-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: white;
+  z-index: 9999999;
+  overflow-y: auto;
+  padding: 20px 15px;
+}
+
+/* Close button */
+.mobile-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* List */
+.mobile-cat-list {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Item */
+.mobile-cat-item {
+  background: #fffffffd;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ===== MOBILE PRODUCT PAGE ===== */
+@media (max-width:768px) {
+
+  .product-banner,
+  .breadcrumb,
+  .segment-selector,
+  .section-divider {
+    display: none;
+  }
+
+  .mobile-prod-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: 600;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-bottom: 1px solid #eee;
+  }
+
+  .mobile-prod-header button {
+    border: none;
+    background: none;
+    font-size: 22px;
+  }
+
+  .mobile-sub-scroll {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 14px;
+  }
+
+  .mobile-sub-pill {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    background: #f3f3f3;
+    border-radius: 20px;
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+  }
+
+  .product-main-content {
+    padding: 15px;
+  }
+}
+
+
+
+/* ===== MOBILE: 2 PRODUCTS PER ROW ===== */
+@media (max-width:768px) {
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .product-card {
+    padding: 10px;
+  }
+
+  .product-img-wrapper {
+    height: 110px;
+    margin-bottom: 8px;
+  }
+
+  .product-card-info h4 {
+    font-size: 12px;
+    height: auto;
+  }
+
+  .product-price {
+    font-size: 14px;
+  }
+
+  .product-meta {
+    font-size: 10px;
+  }
+}
+
+/* ================= MOBILE SINGLE PRODUCT PAGE ================= */
+@media (max-width:768px) {
+
+  .single-top {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Image display full width */
+  .image-display {
+    max-width: 100%;
+    height: 260px;
+    order: 1;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-display img,
+  .main-media {
+    width: 100%;
+    height: 240px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Thumbnails become horizontal row */
+  .thumbs-column {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    order: 2;
+  }
+
+  .thumb-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Product details full width */
+  .product-details-side {
+    max-width: 100%;
+    order: 3;
+    align-self: stretch;
+  }
+
+  /* Enquiry box full width below details */
+  .enquiry-sidebar {
+    width: 100%;
+    order: 4;
+    align-self: stretch;
+  }
+
+  /* Center section spacing */
+  .center-info-section {
+    margin: 20px auto;
+    max-width: 100%;
+    align-self: stretch;
+  }
+
+  /* Related products 2 per row */
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .related-item img {
+    height: 80px;
+  }
+
+  .mobile-back {
+    display: block;
+    font-size: 22px;
+    width: fit-content;
+    padding: 6px 8px;
+    cursor: pointer;
+  }
+}
+
+/* ================= MOBILE LOGIN PAGE ================= */
+@media (max-width:768px) {
+
+  /* Hide top logo */
+  .login-top-logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 60px;
+    height: auto;
+  }
+
+  /* Page keeps background */
+  .login-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 14px;
+  }
+
+  /* ===== LOGIN CARD (big centered) ===== */
+  .login-card {
+    width: 100%;
+    max-width: 380px;
+    padding: 22px 16px;
+    border-radius: 16px;
+    order: 1;
+  }
+
+  /* ===== PARAGRAPH BELOW CARD ===== */
+  .login-left-text {
+    order: 2;
+    width: 100%;
+    max-width: 380px;
+    margin-top: 20px;
+  }
+
+  .login-left-text h3 {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  /* ===== POINTS AT BOTTOM IN ONE LINE ===== */
+  .login-points {
+    order: 3;
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 6px 0;
+  }
+
+  .login-points span {
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .tickmark-logo {
+    width: 14px;
+  }
+
+  /* ===== SMALLER CARD TEXT ===== */
+  .welcome-msg-small {
+    font-size: 15px;
+    margin-top: 5px;
+    font-weight: 300;
+  }
+
+  .card-subtitle-italic {
+    font-size: 13px;
+  }
+
+  .login-input-small {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .remember-me-row {
+    font-size: 13px;
+  }
+
+  .sign-in-button,
+  .register-button-outline {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .card-footer-policy {
+    font-size: 12px;
+  }
+}
+
+/* ================= MOBILE MEMBER PAGE ================= */
+@media (max-width:768px) {
+
+  /* Remove desktop container limits */
+  .member-page {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ===== Banner bigger and full width ===== */
+  .member-banner {
+    padding: 0;
+  }
+
+  .member-banner img {
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ===== Feature panel bigger ===== */
+  .top-panel {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 16px 12px;
+    scrollbar-width: none;
+  }
+
+  .top-panel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .panel-item {
+    flex: 0 0 33%;
+    min-width: 33%;
+    font-size: 13px;
+    padding: 12px 8px;
+    text-align: center;
+  }
+
+  .panel-item svg {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  /* ===== Section ===== */
+  .register-section {
+    width: 100%;
+    padding: 18px 14px;
+  }
+
+  .register-section h2 {
+    font-size: 20px;
+  }
+
+  /* ===== Card now uses full width ===== */
+  .register-card {
+    width: 100%;
+    padding: 18px 14px;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  /* ===== Proper grid ===== */
+  .form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .form-grid>div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-grid label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .form-grid input {
+    width: 100% !important;
+    padding: 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+  }
+
+  /* Button */
+  .register-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    margin-top: 18px;
+  }
+}

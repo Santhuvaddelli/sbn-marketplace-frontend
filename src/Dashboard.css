@@ -1,0 +1,127 @@
+/* ===== DASHBOARD PAGE ===== */
+.dashboard-page {
+    padding: 20px;
+    /* Internal padding for content */
+    margin: 0;
+}
+
+/* ===== COUNT CARDS ===== */
+.count-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+    /* Align cards to top-left */
+}
+
+.count-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    /* Stack label and value vertically */
+    gap: 6px;
+    min-width: 180px;
+    /* Fixed minimum width */
+    max-width: 200px;
+    /* Prevent cards from becoming too wide */
+}
+
+/* Text */
+.count-label {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+    display: block;
+}
+
+.count-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff784f;
+    display: block;
+}
+
+/* ===== HALF SECTIONS ===== */
+.half-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    /* 🔥 full width */
+}
+
+/* Section Box */
+.section-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+/* Header */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.section-header h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+/* View all */
+.section-header a,
+.view-all-btn {
+    font-size: 13px;
+    font-weight: 500;
+    color: #ff784f;
+    text-decoration: none;
+}
+
+.section-header a:hover,
+.view-all-btn:hover {
+    text-decoration: none;
+    /* 🔥 no underline */
+    color: #ff5f2e;
+}
+
+/* ===== MINI TABLE ===== */
+.mini-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.mini-table td {
+    padding: 8px 0;
+    font-size: 13px;
+    color: #444;
+}
+
+.mini-table tr:not(:last-child) td {
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Cells */
+.cell-title {
+    font-weight: 500;
+}
+
+.cell-meta {
+    text-align: right;
+    color: #777;
+    font-size: 12px;
+}
+
+/* Empty */
+.empty-text {
+    font-size: 13px;
+    color: #888;
+    padding: 8px 0;
+}

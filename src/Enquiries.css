@@ -1,0 +1,219 @@
+.enquiries-page {
+    padding: 0;
+    margin: 0;
+}
+
+/* HEADER */
+.enquiries-header {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.enquiries-header h2 {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.enquiries-header p {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* CONTAINER */
+.enquiries-container {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    /* box-shadow removed */
+}
+
+/* TABLE */
+.enquiries-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.enquiries-table thead {
+    background: #f8f9fa;
+}
+
+.enquiries-table th {
+    padding: 14px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+    text-align: left;
+}
+
+.enquiries-table td {
+    padding: 14px 16px;
+    font-size: 13px;
+    color: #334155;
+    border-top: 1px solid #f1f5f9;
+    vertical-align: top;
+}
+
+/* PRODUCT */
+.product-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: 500;
+}
+
+.product-link:hover {
+    color: #1d4ed8;
+}
+
+.table-thumb {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid #e2e8f0;
+}
+
+/* CONTACT */
+.contact-link {
+    color: #64748b;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    color: #2563eb;
+}
+
+/* MESSAGE */
+.message-content {
+    max-width: 420px;
+    background: #f8fafc;
+    border: 1px dashed #e2e8f0;
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* DATE */
+.date-col {
+    font-size: 12px;
+    color: #64748b;
+    white-space: nowrap;
+}
+
+/* EMPTY */
+.empty-row {
+    text-align: center;
+    padding: 40px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.text-muted {
+    color: #94a3b8;
+}
+
+/* ================= MOBILE VERSION ================= */
+@media (max-width: 768px) {
+
+    /* Hide the table headers and original table structure */
+    .enquiries-table thead {
+        display: none;
+    }
+
+    .enquiries-table,
+    .enquiries-table tbody,
+    .enquiries-table tr,
+    .enquiries-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .enquiries-container {
+        border: none;
+        background: transparent;
+    }
+
+    /* Transform each row into a standalone Card */
+    .enquiries-table tr {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        margin-bottom: 16px;
+        padding: 12px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .enquiries-table td {
+        border: none;
+        padding: 6px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-size: 14px;
+    }
+
+    /* Force the Product and Message to take full width */
+    .enquiries-table td:first-child,
+    .enquiries-table td:nth-child(5) {
+        display: block;
+        border-bottom: 1px solid #f1f5f9;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+
+    /* Labels for Mobile (CSS Generated) */
+    .enquiries-table td:nth-child(2)::before {
+        content: "Customer:";
+        font-weight: 600;
+        color: #64748b;
+    }
+
+    .enquiries-table td:nth-child(3)::before {
+        content: "Email:";
+        font-weight: 600;
+        color: #64748b;
+    }
+
+    .enquiries-table td:nth-child(4)::before {
+        content: "Phone:";
+        font-weight: 600;
+        color: #64748b;
+    }
+
+    .enquiries-table td:last-child::before {
+        content: "Date:";
+        font-weight: 600;
+        color: #64748b;
+    }
+
+    /* Adjusting the specific content styles */
+    .message-content {
+        max-width: 100%;
+        margin-top: 5px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+    }
+
+    .product-link {
+        font-size: 15px;
+        margin-bottom: 4px;
+    }
+
+    .table-thumb {
+        width: 44px;
+        height: 44px;
+    }
+
+    .date-col {
+        text-align: right;
+    }
+}
