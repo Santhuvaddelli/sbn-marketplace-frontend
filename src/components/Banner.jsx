@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import api from "../api/axios";
 
 export default function Banner() {
   const legalRef = useRef(null);
@@ -17,9 +17,9 @@ export default function Banner() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const legal = await axios.get("http://localhost:3000/product/category/legal");
-        const electronics = await axios.get("http://localhost:3000/product/category/electronics");
-        const exportImp = await axios.get("http://localhost:3000/product/category/export-&-import");
+        const legal = await api.get("/product/category/legal");
+        const electronics = await api.get("/product/category/electronics");
+        const exportImp = await api.get("/product/category/export-&-import");
 
         setLegalProducts(legal.data);
         setElectronicProducts(electronics.data);
