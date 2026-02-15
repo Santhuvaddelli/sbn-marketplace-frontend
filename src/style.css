@@ -203,7 +203,7 @@ body,
 
 /* Header & Arrows */
 .legal-replica-header {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto 8px auto;
   display: flex;
   justify-content: center;
@@ -219,27 +219,52 @@ body,
   margin: 0;
 }
 
-.replica-controls {
-  position: absolute;
-  right: 20px;
+.replica-panel-container {
+  position: relative;
+  /* THIS IS THE KEY */
+  width: 100%;
+  /* Ensure it spans the full width of its area */
   display: flex;
-  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  /* Keeps your text centered */
+  padding: 10px 0;
 }
 
+/* 2. Your existing controls will now anchor to the right of THAT container */
+.replica-controls {
+  position: absolute;
+  top: 50%;
+  /* Move to vertical center */
+  transform: translateY(-50%);
+  /* Perfectly center vertically */
+  right: 20px;
+  /* Distance from the right edge of the pink bar */
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+/* 3. Button styles remain the same */
 .ctrl-btn {
   background: #666;
   color: white;
   border: none;
-  width: 22px;
-  /* Tiny buttons */
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 12px;
   opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.ctrl-btn:hover {
+  opacity: 1;
+  background: #444;
 }
 
 /* The Horizontal Scroll Row */
