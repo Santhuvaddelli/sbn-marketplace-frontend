@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://d3thnhiwuzdmr6.cloudfront.net',
+    baseURL: 'http://16.171.224.42',
 });
 
 //Attach AccessToken to every request after login
@@ -20,7 +20,7 @@ api.interceptors.response.use((response) => response, async (error) => {
         originalRequest._retry = true;
         try {
             const refreshToken = localStorage.getItem("refreshToken");
-            const res = await api.post("https://d3thnhiwuzdmr6.cloudfront.net/api/refresh", { refreshToken });
+            const res = await api.post("http://16.171.224.42/api/refresh", { refreshToken });
             const newAccessToken = res.data.accessToken;
             localStorage.setItem("accessToken", newAccessToken);
             originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
