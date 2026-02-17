@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faCamera } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
 import "../MyProfile.css";
+import Loader from "./Loader";
 
 export default function MyProfile() {
     const [user, setUser] = useState({});
