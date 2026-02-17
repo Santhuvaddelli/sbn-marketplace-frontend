@@ -12,7 +12,8 @@ import {
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MobileCategories from "./MobileCategories";
-import api from "../api/axios";
+import Loader from "./Loader";
+import { useData } from "../context/DataContext";
 
 const icons = {
   Software: faLaptopCode,
@@ -38,55 +39,35 @@ const topBarCategories = [
 export default function Categories() {
   const [openMenu, setOpenMenu] = useState(null);
   const [showMobileCats, setShowMobileCats] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const { categories, subcategories, segments, loading } = useData();
   const [allCategories, setAllCategories] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        setLoading(true);
-        const [
-          { data: categories },
-          { data: subcategories },
-          { data: segments },
-        ] = await Promise.all([
-          api.get("/categories"),
-          api.get("/subcategories"),
-          api.get("/segments"),
-        ]);
-        // ... transform logic ...
-        const nestedData = categories.map((cat) => {
-          const relevantSubs = subcategories.filter(
-            (sub) => sub.categoryId === cat._id
+    if (!loading && categories.length > 0) {
+      const nestedData = categories.map((cat) => {
+        const relevantSubs = subcategories.filter(
+          (sub) => sub.categoryId === cat._id
+        );
+
+        const items = relevantSubs.map((sub) => {
+          const relevantSegs = segments.filter(
+            (seg) => seg.subCategoryId === sub._id
           );
 
-          const items = relevantSubs.map((sub) => {
-            const relevantSegs = segments.filter(
-              (seg) => seg.subCategoryId === sub._id
-            );
-
-            return {
-              title: sub.name,
-              sub: relevantSegs.map((s) => s.name),
-            };
-          });
-
           return {
-            name: cat.name,
-            items: items,
+            title: sub.name,
+            sub: relevantSegs.map((s) => s.name),
           };
         });
 
-        setAllCategories(nestedData);
-      } catch (error) {
-        console.error("Error fetching categories:", error);
-      } finally {
-        setLoading(false);
-      }
+        return {
+          name: cat.name,
+          items: items,
+        };
+      });
+      setAllCategories(nestedData);
     }
-
-    fetchData();
-  }, []);
+  }, [categories, subcategories, segments, loading]);
 
   // Split categories
   const topCategories = allCategories.filter((c) =>
@@ -106,7 +87,7 @@ export default function Categories() {
           }
         }}
       >
-        <FontAwesomeIcon icon={faLayerGroup} /> {loading ? "Loading..." : "All Categories"}
+        <FontAwesomeIcon icon={faLayerGroup} /> {loading ? <Loader /> : "All Categories"}
         <div className="mega-panel">
           <div className="mega-col">
             {allCategories.map((cat, i) => (

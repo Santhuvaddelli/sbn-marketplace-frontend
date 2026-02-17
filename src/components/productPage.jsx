@@ -1,5 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useData } from "../context/DataContext";
 import api from "../api/axios";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import Loader from "./Loader";
@@ -8,6 +9,7 @@ export default function ProductPage() {
   const { category, item, product: segment } = useParams();
   const navigate = useNavigate();
   const isMobile = window.innerWidth <= 768;
+  const { categories: allCategories, subcategories: allSubCategories, segments: allSegments, loading: globalLoading } = useData();
   const [products, setProducts] = useState([]);
   const [currentCat, setCurrentCat] = useState(null);
   const [currentSub, setCurrentSub] = useState(null);
@@ -16,7 +18,7 @@ export default function ProductPage() {
   const deSlug = (text) => text?.replace(/-/g, " ");
 
   useEffect(() => {
-    async function loadData() {
+    async function loadProducts() {
       setLoading(true);
       try {
         let productEndpoint = "/product/allProducts";
@@ -28,63 +30,52 @@ export default function ProductPage() {
           productEndpoint = `/product/category/${category}`;
         }
 
-        // Fetch Data in Parallel:
-        // 1. Products (from specific endpoint)
-        // 2. Categories/SubCats/Segments (for the side menu/filtering UI)
-        const [
-          { data: fetchedProducts },
-          { data: allCategories },
-          { data: allSubCategories },
-          { data: allSegments },
-        ] = await Promise.all([
-          api.get(productEndpoint),
-          api.get("/categories"),
-          api.get("/subcategories"),
-          api.get("/segments"),
-        ]);
-
-        setProducts(fetchedProducts);
-
-        if (category) {
-          const categoryName = deSlug(category);
-          const foundCategory = allCategories.find(
-            (c) => c.name.toLowerCase() === categoryName.toLowerCase()
-          );
-
-          if (foundCategory) {
-            const relatedSubCats = allSubCategories.filter(
-              (s) => s.categoryId.toString() === foundCategory._id.toString()
-            );
-            setCurrentCat({ ...foundCategory, subcategories: relatedSubCats });
-
-            // If we are deep in subcategory view, find that subcategory too
-            if (item) {
-              const subCategoryName = deSlug(item);
-              const foundSubCategory = allSubCategories.find(
-                (s) =>
-                  s.name.toLowerCase() === subCategoryName.toLowerCase() &&
-                  s.categoryId.toString() === foundCategory._id.toString()
-              );
-
-              if (foundSubCategory) {
-                const relatedSegments = allSegments.filter(
-                  (seg) =>
-                    seg.subCategoryId.toString() ===
-                    foundSubCategory._id.toString()
-                );
-                setCurrentSub({ ...foundSubCategory, segments: relatedSegments });
-              }
-            }
-          }
-        }
+        const { data } = await api.get(productEndpoint);
+        setProducts(data);
       } catch (err) {
-        console.error("Failed to load data", err);
+        console.error("Failed to load products", err);
       } finally {
         setLoading(false);
       }
     }
-    loadData();
+    loadProducts();
   }, [category, item, segment]);
+
+  useEffect(() => {
+    if (!globalLoading && allCategories.length > 0) {
+      if (category) {
+        const categoryName = deSlug(category);
+        const foundCategory = allCategories.find(
+          (c) => c.name.toLowerCase() === categoryName.toLowerCase()
+        );
+
+        if (foundCategory) {
+          const relatedSubCats = allSubCategories.filter(
+            (s) => s.categoryId.toString() === foundCategory._id.toString()
+          );
+          setCurrentCat({ ...foundCategory, subcategories: relatedSubCats });
+
+          if (item) {
+            const subCategoryName = deSlug(item);
+            const foundSubCategory = allSubCategories.find(
+              (s) =>
+                s.name.toLowerCase() === subCategoryName.toLowerCase() &&
+                s.categoryId.toString() === foundCategory._id.toString()
+            );
+
+            if (foundSubCategory) {
+              const relatedSegments = allSegments.filter(
+                (seg) =>
+                  seg.subCategoryId.toString() ===
+                  foundSubCategory._id.toString()
+              );
+              setCurrentSub({ ...foundSubCategory, segments: relatedSegments });
+            }
+          }
+        }
+      }
+    }
+  }, [category, item, allCategories, allSubCategories, allSegments, globalLoading]);
   const formatTitle = (text) => {
     if (!text) return "";
     return text
