@@ -39,6 +39,7 @@ export default function Categories() {
   const [openMenu, setOpenMenu] = useState(null);
   const [showMobileCats, setShowMobileCats] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [allCategories, setAllCategories] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
