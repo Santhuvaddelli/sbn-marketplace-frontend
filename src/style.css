@@ -1522,6 +1522,11 @@ body,
     scrollbar-width: none;
   }
 
+  /* Hide dropdowns for top bar categories on mobile */
+  .normal-menu {
+    display: none !important;
+  }
+
   /* 3. FOOTER FIX: Reduce size and stack text */
   .footer {
     padding: 15px 20px !important;
