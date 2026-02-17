@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../api/axios";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import Loader from "./Loader";
 
 export default function ProductPage() {
   const { category, item, product: segment } = useParams();
@@ -95,7 +96,7 @@ export default function ProductPage() {
 
   const title = formatTitle(segment || item || category);
 
-  if (loading) return <div className="loading">Loading...</div>;
+  if (loading) return <Loader />;
 
   return (
     <div className="product-page-container">

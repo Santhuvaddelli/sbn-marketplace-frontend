@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from "../api/axios";
+import Loader from "./Loader";
 
 export default function Banner() {
   const legalRef = useRef(null);
@@ -55,9 +56,7 @@ export default function Banner() {
         <div className="home-banner-container">
           <img src="/Home.jpg" alt="Home Banner" />
         </div>
-        <div style={{ padding: '2rem', textAlign: 'center' }}>
-          <h4>Loading latest products...</h4>
-        </div>
+        <Loader />
       </div>
     );
   }

@@ -5,6 +5,7 @@ import { faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
 import api from "../api/axios";
 import { toast } from "react-toastify";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import Loader from "./Loader";
 
 export default function SingleProductPage() {
   const { slug } = useParams();
@@ -135,7 +136,7 @@ export default function SingleProductPage() {
     window.scrollTo(0, 0);
   }, [slug]);
 
-  if (loading) return <div className="loading">Loading...</div>;
+  if (loading) return <Loader />;
   if (!product) return <div className="no-product">Product Not Found</div>;
 
   return (
