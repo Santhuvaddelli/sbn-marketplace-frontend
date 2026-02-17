@@ -14,7 +14,7 @@ body,
 #root {
   height: 100%;
   margin: 0;
-  overscroll-behavior: none;
+  overscroll-behavior: auto;
   scrollbar-width: none;
 }
 

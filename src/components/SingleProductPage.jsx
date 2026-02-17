@@ -202,7 +202,7 @@ export default function SingleProductPage() {
                 <input placeholder="Full Name *" className="small-input" onChange={handleEnquiry} name="name" value={enquiry.name} />
                 <input placeholder="Mobile *" className="small-input" onChange={handleEnquiry} name="phone" value={enquiry.phone} />
                 <input placeholder="Email *" className="small-input" onChange={handleEnquiry} name="email" value={enquiry.email} />
-                <textarea placeholder="Message" className="small-text" onChange={handleEnquiry} name="message" value={enquiry.message}></textarea>
+                <textarea placeholder="Message *" className="small-text" onChange={handleEnquiry} name="message" value={enquiry.message}></textarea>
                 <button className="small-btn" onClick={handleEnquirySubmit}>Submit Enquiry</button>
               </div>
             </div>
