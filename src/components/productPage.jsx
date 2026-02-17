@@ -87,8 +87,6 @@ export default function ProductPage() {
 
   const title = formatTitle(segment || item || category);
 
-  if (loading) return <Loader />;
-
   return (
     <div className="product-page-container">
       {isMobile && (
@@ -194,7 +192,9 @@ export default function ProductPage() {
         {!isMobile && <hr className="section-divider" />}
 
         <div className="products-grid">
-          {products.length > 0 ? (
+          {loading ? (
+            <Loader />
+          ) : products.length > 0 ? (
             products.map((p) => (
               <Link
                 key={p._id}
