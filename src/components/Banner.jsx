@@ -14,18 +14,25 @@ export default function Banner() {
     text.toLowerCase().trim().replace(/\s+/g, "-");
 
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const legal = await api.get("/product/category/legal");
-        const electronics = await api.get("/product/category/electronics");
-        const exportImp = await api.get("/product/category/export-&-import");
+        setLoading(true);
+        const [legalRes, electronicsRes, exportImpRes] = await Promise.all([
+          api.get("/product/category/legal"),
+          api.get("/product/category/electronics"),
+          api.get("/product/category/export-&-import"),
+        ]);
 
-        setLegalProducts(legal.data);
-        setElectronicProducts(electronics.data);
-        setExportandimportProducts(exportImp.data);
+        setLegalProducts(legalRes.data);
+        setElectronicProducts(electronicsRes.data);
+        setExportandimportProducts(exportImpRes.data);
       } catch (err) {
         console.error(err);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -41,6 +48,19 @@ export default function Banner() {
       });
     }
   };
+
+  if (loading) {
+    return (
+      <div className="home-banner-wrapper">
+        <div className="home-banner-container">
+          <img src="/Home.jpg" alt="Home Banner" />
+        </div>
+        <div style={{ padding: '2rem', textAlign: 'center' }}>
+          <h4>Loading latest products...</h4>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="home-banner-wrapper">

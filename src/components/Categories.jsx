@@ -38,11 +38,12 @@ const topBarCategories = [
 export default function Categories() {
   const [openMenu, setOpenMenu] = useState(null);
   const [showMobileCats, setShowMobileCats] = useState(false);
-  const [allCategories, setAllCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
+        setLoading(true);
         const [
           { data: categories },
           { data: subcategories },
@@ -52,9 +53,7 @@ export default function Categories() {
           api.get("/subcategories"),
           api.get("/segments"),
         ]);
-
-        // Transform flat data to nested structure expected by the component
-        // Structure: { name: "Category", items: [{ title: "SubCategory", sub: ["Segment1", "Segment2"] }] }
+        // ... transform logic ...
         const nestedData = categories.map((cat) => {
           const relevantSubs = subcategories.filter(
             (sub) => sub.categoryId === cat._id
@@ -80,6 +79,8 @@ export default function Categories() {
         setAllCategories(nestedData);
       } catch (error) {
         console.error("Error fetching categories:", error);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -104,7 +105,7 @@ export default function Categories() {
           }
         }}
       >
-        <FontAwesomeIcon icon={faLayerGroup} /> All Categories
+        <FontAwesomeIcon icon={faLayerGroup} /> {loading ? "Loading..." : "All Categories"}
         <div className="mega-panel">
           <div className="mega-col">
             {allCategories.map((cat, i) => (
