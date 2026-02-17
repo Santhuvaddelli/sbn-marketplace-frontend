@@ -37,11 +37,12 @@ export default function MyProfile() {
             toast.success("✅ Profile Updated Successfully");
         } catch (err) {
             console.error("Error updating profile:", err);
-            toast.error("❌ Failed to update profile");
+            const errorMessage = err.response?.data?.message || "Failed to update profile";
+            toast.error(`❌ ${errorMessage}`);
         }
     };
 
-    if (loading) return <div className="profile-loading">Loading profile...</div>;
+    if (loading) return <div className="profile-loading"><Loader /></div>;
 
     // Get initials for avatar
     const getInitials = () => {
